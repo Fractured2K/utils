@@ -1,16 +1,18 @@
 /**
- * @description Chunk a large array into multiple sub arrays
+ * @description Chunk a large array into multiple sub arrays - chunkArray([1, 2, 3, 4], 2) -> [[1, 2], [3, 4]]
  * @param {Array} array - Array
  * @param {Number} chunks - Amount of elements in array
- * @returns [1, 2, 3, 4] -> [[1, 2], [3, 4]] ()
+ * @returns [[1, 2], [3, 4]]
  */
 function chunkArray(array, chunks) {
   return new Promise((resolve, reject) => {
     // validation
-    if (!array) reject("array is a required argument");
-    if (!Array.isArray(array)) reject("array agrument must be of type Array");
-    if (!chunks) reject("chunks is a required argument");
-    if (isNaN(chunks)) reject("chunks agrument must be of type Number");
+    if (!array) return reject("array is a required argument");
+    if (!Array.isArray(array))
+      return reject("array agrument must be of type Array");
+    if (!chunks) return reject("chunks is a required argument");
+    if (typeof chunks !== "number")
+      return reject("chunks agrument must be of type Number");
 
     // handle empty array
     if (!array.length) return resolve([]);
